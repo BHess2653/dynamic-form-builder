@@ -5,6 +5,8 @@ exports.formGenerator = (formInputs) => {
     if (input.type) {
       switch (input.type.toLowerCase()) {
 
+        case 'password':
+
         case 'text':
           output += `<input type="${input.type}" `;
           output += input.id ? `id="${input.id}" ` : '';
@@ -12,8 +14,6 @@ exports.formGenerator = (formInputs) => {
           output += input.required ? 'required' : '';
           output += '/>';
         break;
-
-        case 'password':
 
         case 'label':
           output += '<label ';
@@ -29,7 +29,13 @@ exports.formGenerator = (formInputs) => {
           output += input.value ? `value="${input.value}" ` : '';
           output += '></input>';
         break;
+
+        default:
+          console.log(`❗️ Error❗️ invalid type ➡️  ${input.type} ⬅️`);
       }
+    } else {
+      console.log('❗️ Error❗️ Missing input type please Check input array');
     }
   })
+  return `<form method="post">${output}</form>`;
 };
