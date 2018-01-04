@@ -35,4 +35,4 @@ const inputArry = [
   },
 ];
 
-console.log(tool.Build(inputArry));
+console.log(tool.formGenerator(inputArry));
