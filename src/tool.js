@@ -31,10 +31,10 @@ exports.formGenerator = (formInputs) => {
         break;
 
         default:
-          console.log(`❗️ Error❗️ invalid type ➡️  ${input.type} ⬅️`);
+          throw new Error(`❗️ Error❗️ invalid type ➡️  ${input.type} ⬅️`);
       }
     } else {
-      console.log('❗️ Error❗️ Missing input type please Check input array');
+      throw new Error('❗️ Error❗️ Missing input type please Check input array');
     }
   })
   return `<form method="post">${output}</form>`;
